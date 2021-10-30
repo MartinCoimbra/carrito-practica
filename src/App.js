@@ -12,10 +12,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <p>Hola mundo</p>
         <p>Hola mundo</p> 
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
       </>
     );
   }

@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Productos from "./component/productos.js";
+import Layout from "./component/Layout";
 
 export default class App extends Component {
   state = {
@@ -11,13 +12,12 @@ export default class App extends Component {
   };
   render() {
     return (
-      <>
-        <p>Hola mundos</p>
+      <Layout>
         <Productos
           agregarAlcarrito={(arg) => console.log(arg)}
           productos={this.state.productos}
         />
-      </>
+      </Layout>
     );
   }
 }

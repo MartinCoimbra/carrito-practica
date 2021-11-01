@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Productos from "./component/productos.js";
-import Layout from "./component/Layout";
+import Layout from "./component/Layout.js";
+import Title from "./component/title.js";
 
 export default class App extends Component {
   state = {
@@ -13,6 +14,7 @@ export default class App extends Component {
   render() {
     return (
       <Layout>
+        <Title />
         <Productos
           agregarAlcarrito={(arg) => console.log(arg)}
           productos={this.state.productos}

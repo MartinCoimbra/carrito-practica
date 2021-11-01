@@ -14,7 +14,6 @@ const styles = {
 export default class Button extends Component {
   render() {
     /* {...this.props} con esto pasamos todas las propiedades que tenemos */
-    console.log(this.props);
     return <button style={styles.button} {...this.props} />;
   }
 }

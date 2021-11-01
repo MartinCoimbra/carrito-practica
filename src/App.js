@@ -14,7 +14,7 @@ export default class App extends Component {
       <>
         <p>Hola mundos</p>
         <Productos
-          agregarAlcarrito={() => console.log("Pendiente")}
+          agregarAlcarrito={(arg) => console.log(arg)}
           productos={this.state.productos}
         />
       </>

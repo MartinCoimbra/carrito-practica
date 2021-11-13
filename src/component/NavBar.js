@@ -1,6 +1,6 @@
 import { Component } from "react";
-import Logo from "./Logo"
-import Carro from "./Carro"
+import Logo from "./Logo";
+import Carro from "./Carro";
 
 const styles = {
   navbar: {
@@ -10,17 +10,18 @@ const styles = {
     alignItems: "center",
     justifyContent: "space-between",
     position: "relative",
-    padding:"0 50px",
-    boxShadow:"0 2px 3px rgb(0,0,0,0.1)"
+    padding: "0 50px",
+    boxShadow: "0 2px 3px rgb(0,0,0,0.1)",
   },
 };
 
 export default class NavBar extends Component {
   render() {
+    const { carro } = this.props;
     return (
       <nav style={styles.navbar}>
         <Logo />
-        <Carro />
+        <Carro carro={carro} />
       </nav>
     );
   }

@@ -15,7 +15,9 @@ export default class App extends Component {
   };
   agregarAlcarrito = (producto) => {
     const { carro } = this.state;
+    /* Si esta el producto dentro del carro */
     if (carro.find((x) => x.name === producto.name)) {
+      /* Lo buscamos para saber a quien agregarle 1 */
       const newCarro = carro.map((x) =>
         x.name === producto.name
           ? {
@@ -24,11 +26,13 @@ export default class App extends Component {
             }
           : x
       );
+      /* no hacemos concat porque estamos devolviendo todo (es un ternario) */
       return this.setState({
         carro: newCarro,
       });
     }
     /* concat es para agregar, lo mismo seria con "push"" */
+    /* Esto va a pasar si no esta el producto  adentro del carro todavia */
     return this.setState({
       carro: this.state.carro.concat({
         ...producto,
@@ -40,7 +44,7 @@ export default class App extends Component {
     console.log(this.state.carro);
     return (
       <div>
-        <NavBar />
+        <NavBar carro={this.state.carro} />
         <Layout>
           <Title />
           <Productos

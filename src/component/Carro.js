@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { isElementOfType } from "react-dom/test-utils";
 import BubbleAlert from "./BubbleAlert";
 
 const styles = {
@@ -19,10 +20,12 @@ const styles = {
 
 export default class Carro extends Component {
   render() {
+    const { carro } = this.props;
+    const cantidad = carro.reduce((acc, element) => acc + element.cantidad, 0);
     return (
       <div>
         <span style={styles.bubble}>
-          <BubbleAlert value={5}/>
+          {cantidad !== 0 && <BubbleAlert value={cantidad} />}
         </span>
         <button style={styles.Carro}>Carro</button>
       </div>

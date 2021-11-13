@@ -12,7 +12,9 @@ export default class App extends Component {
       { name: "Lechuga", price: 1500, img: "./productosimg/lechuga.jpg" },
     ],
     carro: [],
+    carroVisible: false,
   };
+
   agregarAlcarrito = (producto) => {
     const { carro } = this.state;
     /* Si esta el producto dentro del carro */
@@ -40,11 +42,25 @@ export default class App extends Component {
       }),
     });
   };
+
+  mostrarCarro = () => {
+    /* prevenimos que abra el listado si no tiene productos añadido  */
+    /* si no tenemos elementos en el carro no hagas nada, corta la funcion */
+    if (!this.state.carro.length) {
+      return;
+    }
+    this.setState({ carroVisible: !this.state.carroVisible });
+  };
+
   render() {
-    console.log(this.state.carro);
+    const { carroVisible } = this.state;
     return (
       <div>
-        <NavBar carro={this.state.carro} />
+        <NavBar
+          carro={this.state.carro}
+          carroVisible={carroVisible}
+          mostrarCarro={this.mostrarCarro}
+        />
         <Layout>
           <Title />
           <Productos

@@ -1,7 +1,6 @@
 import { Component } from "react";
-import { isElementOfType } from "react-dom/test-utils";
 import BubbleAlert from "./BubbleAlert";
-
+import DetallesCarro from "./detallesCarro";
 const styles = {
   Carro: {
     backgroundColor: "#359A2C",
@@ -20,14 +19,17 @@ const styles = {
 
 export default class Carro extends Component {
   render() {
-    const { carro } = this.props;
+    const { carro, carroVisible, mostrarCarro } = this.props;
     const cantidad = carro.reduce((acc, element) => acc + element.cantidad, 0);
     return (
       <div>
         <span style={styles.bubble}>
           {cantidad !== 0 && <BubbleAlert value={cantidad} />}
         </span>
-        <button style={styles.Carro}>Carro</button>
+        <button onClick={mostrarCarro} style={styles.Carro}>
+          Carro
+        </button>
+        {carroVisible && <DetallesCarro carro={carro} />}
       </div>
     );
   }

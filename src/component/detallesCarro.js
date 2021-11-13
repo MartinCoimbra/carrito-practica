@@ -26,7 +26,7 @@ const styles = {
 
 export default class DetallesCarro extends Component {
   render() {
-    const { carro } = this.props;
+    const { carro, borrarProducto } = this.props;
     return (
       <div style={styles.detallesCarro}>
         <ul style={styles.ul}>
@@ -34,6 +34,7 @@ export default class DetallesCarro extends Component {
             <li key={x.name} style={styles.producto}>
               <img alt={x.name} src={x.img} width="50" height="32" />
               {x.name} <span>{x.cantidad}</span>
+              <button onClick={() => borrarProducto(x.name)}>❌</button>
             </li>
           ))}
         </ul>

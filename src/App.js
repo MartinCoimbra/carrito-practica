@@ -52,6 +52,15 @@ export default class App extends Component {
     this.setState({ carroVisible: !this.state.carroVisible });
   };
 
+  borrarProducto = (nombredelproducto) => {
+    const carroNew = this.state.carro.filter(
+      (x) => x.name !== nombredelproducto
+    );
+    this.setState({
+      carro: carroNew,
+    });
+  };
+
   render() {
     const { carroVisible } = this.state;
     return (
@@ -60,6 +69,7 @@ export default class App extends Component {
           carro={this.state.carro}
           carroVisible={carroVisible}
           mostrarCarro={this.mostrarCarro}
+          borrarProducto={this.borrarProducto}
         />
         <Layout>
           <Title />

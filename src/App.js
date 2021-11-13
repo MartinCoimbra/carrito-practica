@@ -59,6 +59,9 @@ export default class App extends Component {
     this.setState({
       carro: carroNew,
     });
+    if (this.state.carro.length === 1) {
+      this.setState({ carroVisible: false });
+    }
   };
 
   render() {
